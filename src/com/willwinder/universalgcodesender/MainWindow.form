@@ -121,7 +121,7 @@
                       <Component id="showVerboseOutputCheckBox" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
-                  <Component id="controlContextTabbedPane" pref="0" max="32767" attributes="0"/>
+                  <Component id="controlContextTabbedPane" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Component id="bottomTabbedPane" alignment="0" max="32767" attributes="0"/>
@@ -273,7 +273,7 @@
                           <Component id="commandTextField" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="commandLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="385" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="402" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -339,7 +339,7 @@
                               <Component id="pauseButton" min="-2" pref="95" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="cancelButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="58" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="rangeCheckButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="visualizeButton" min="-2" max="-2" attributes="0"/>
@@ -622,7 +622,7 @@
             </Container>
             <Component class="javax.swing.JButton" name="rangeCheckButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Range"/>
+                <Property name="text" type="java.lang.String" value="Range Check"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
@@ -662,7 +662,7 @@
                               <Component id="toggleCheckMode" min="-2" pref="49" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="66" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="keyboardMovementPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1001,7 +1001,7 @@
                       <Component id="firmwareLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="firmwareComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1224,7 +1224,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="17" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

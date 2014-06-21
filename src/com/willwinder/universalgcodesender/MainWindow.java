@@ -245,7 +245,7 @@ implements KeyListener, ControllerListener, MainWindowAPI {
                     .add(commandTextField)
                     .add(commandsPanelLayout.createSequentialGroup()
                         .add(commandLabel)
-                        .add(0, 385, Short.MAX_VALUE)))
+                        .add(0, 402, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         commandsPanelLayout.setVerticalGroup(
@@ -398,7 +398,7 @@ implements KeyListener, ControllerListener, MainWindowAPI {
                 .addContainerGap())
         );
 
-        rangeCheckButton.setText("Range");
+        rangeCheckButton.setText("Range Check");
         rangeCheckButton.setEnabled(false);
         rangeCheckButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -423,7 +423,7 @@ implements KeyListener, ControllerListener, MainWindowAPI {
                         .add(pauseButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 95, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(cancelButton)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 58, Short.MAX_VALUE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .add(rangeCheckButton)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(visualizeButton))
@@ -674,7 +674,7 @@ implements KeyListener, ControllerListener, MainWindowAPI {
                         .add(killAlarmLock, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(toggleCheckMode, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 49, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(keyboardMovementPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -786,7 +786,7 @@ implements KeyListener, ControllerListener, MainWindowAPI {
                 .add(connectionPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(firmwareLabel)
                     .add(firmwareComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         showVerboseOutputCheckBox.setText("Show verbose output");
@@ -929,7 +929,7 @@ implements KeyListener, ControllerListener, MainWindowAPI {
                         .add(statusPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(machinePositionZLabel)
                             .add(machinePositionZValueLabel))))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         settingsMenu.setText("Settings");
@@ -994,7 +994,7 @@ implements KeyListener, ControllerListener, MainWindowAPI {
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(showVerboseOutputCheckBox)
                         .addContainerGap())
-                    .add(controlContextTabbedPane, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .add(controlContextTabbedPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .add(bottomTabbedPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -1561,12 +1561,12 @@ implements KeyListener, ControllerListener, MainWindowAPI {
             }
 
             List<String> rangeCommands = new ArrayList<>();
-            rangeCommands.add("G01 X "+ mins.get("X") +" Y "+ mins.get("Y"));
-            rangeCommands.add("G01 X "+ mins.get("X") +" Y "+ maxes.get("Y"));
-            rangeCommands.add("G01 X "+ maxes.get("X") +" Y "+ maxes.get("Y"));
-            rangeCommands.add("G01 X "+ maxes.get("X") +" Y "+ mins.get("Y"));
-            rangeCommands.add("G01 X "+ mins.get("X") +" Y "+ mins.get("Y"));
-            rangeCommands.add("G01 X 0 Y 0");
+            rangeCommands.add("G00 X "+ mins.get("X") +" Y "+ mins.get("Y"));
+            rangeCommands.add("G00 X "+ mins.get("X") +" Y "+ maxes.get("Y"));
+            rangeCommands.add("G00 X "+ maxes.get("X") +" Y "+ maxes.get("Y"));
+            rangeCommands.add("G00 X "+ maxes.get("X") +" Y "+ mins.get("Y"));
+            rangeCommands.add("G00 X "+ mins.get("X") +" Y "+ mins.get("Y"));
+            rangeCommands.add("G00 X 0 Y 0");
            
             // This will throw an exception and prevent that other stuff from
             // happening (clearing the table before its ready for clearing.
@@ -1581,13 +1581,13 @@ implements KeyListener, ControllerListener, MainWindowAPI {
             this.controller.appendGcodeCommands(rangeCommands, this.gcodeFile);
 
             this.resetSentRowLabels(this.controller.rowsInQueue());
-            timer.start();
+//            timer.start();
             this.controller.beginStreaming();
         
         } catch (IOException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e) {
-            timer.stop();
+//            timer.stop();
             this.updateControlsForState(ControlState.COMM_IDLE);
             e.printStackTrace();
             MainWindow.displayErrorDialog(
